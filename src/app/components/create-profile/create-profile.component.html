@@ -1,0 +1,30 @@
+
+      <h1>Create profile</h1>
+
+
+    <form [formGroup]="form" (submit)="onSubmit()">
+
+      <div class="form-floating mb-3">
+        <input type="text" formControlName="name" class="form-control" id="name"
+               placeholder="name">
+        <label for="name">Name</label>
+      </div>
+
+      <div class="input-group mb-3">
+        <input (change)="onFileSelect($event)" type="file" class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+      </div>
+      <div *ngIf="imageData">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <img [src]="imageData" [alt]="form.value.name" class="card-img-top">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">Create profile</button>
+      </div>
+    </form>
+
